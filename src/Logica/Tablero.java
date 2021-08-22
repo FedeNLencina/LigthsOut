@@ -1,5 +1,6 @@
 package Logica;
 
+import java.util.HashSet;
 import java.util.Random;
 
 public class Tablero {
@@ -27,15 +28,31 @@ public class Tablero {
 		this.tablero = tablero;
 	}
 	
-//	public static void main(String[] args) {
-//		Tablero tabla = new Tablero(4,4);
-//		
-//		for (int i = 0; i < tabla.getBotones().length; i++) {
-//			for (int j = 0; j < tabla.getBotones()[i].length; j++) {
-//				System.out.println(tabla.getBotones()[i][j].isState());
-//			}
-//			
-//		} 
-//	
-//	}
+	public void cambiarEstadoBoton(int i ,int j) {
+		if (tablero[i][j].isState()) {
+			tablero[i][j].setState(false);
+		}else {
+			tablero[i][j].setState(true);;
+		}
+	}
+	
+	public boolean existeBoton(int i,int j) {
+		if ((i<0 || i >=tablero.length) || (j<0 || j >=tablero.length)) {
+				return false;
+		}
+		return true;
+	}
+	
+	public void cambiarEstadoVecinos(int i,int j) {
+		if(existeBoton(i-1, j)) 
+			cambiarEstadoBoton(i-1, j);
+		if(existeBoton(i+1, j)) 
+			cambiarEstadoBoton(i+1, j);
+		if(existeBoton(i, j-1)) 
+			cambiarEstadoBoton(i, j-1);
+		if(existeBoton(i, j+1)) 
+			cambiarEstadoBoton(i, j+1);
+	}
+	
+
 }

@@ -13,6 +13,8 @@ import javax.swing.text.StyleConstants.ColorConstants;
 import Logica.Tablero;
 import Logica.Boton;
 import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 
 
 
@@ -61,6 +63,9 @@ public class Ventana {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(new GridLayout(4, 4, 8, 8));
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
+		frame.getContentPane().add(chckbxNewCheckBox);
 		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
