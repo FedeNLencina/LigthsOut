@@ -1,99 +1,52 @@
 package Visual;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
 import javax.swing.UIManager;
-import javax.swing.text.StyleConstants.ColorConstants;
-
-import Logica.Tablero;
-import Logica.Boton;
+import Logica.TableroLogico;
+import Logica.BotonLogico;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JCheckBox;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+
 
 
 
 
 public class Ventana {
 
-	JFrame frame;
-	private Tablero tablero;
+	public JFrame frame;
+	private TableroDeBotones botones;
 	
 	
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch(Exception e) 
-		{}
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana window = new Ventana();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	/**
-	 * Create the application.
-	 */
-	public Ventana() {
-		this.tablero = new Tablero(4,4);
-		initialize();
+	public Ventana(JFrame frame) {
+		this.frame = frame;
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
+	public void initialize() {
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.getContentPane().setLayout(new GridLayout(4, 4, 8, 8));
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-		frame.getContentPane().add(chckbxNewCheckBox);
-		
+		frame.getContentPane().setLayout(new GridLayout(4, 4, 0, 0));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 		
-		for(int i = 0; i < tablero.getBotones().length ; i++) {
-			for(int j = 0; j < tablero.getBotones()[i].length; j++) {
-				JButton btnNewButton = new JButton("");
-				
-				
-				if(tablero.getBotones()[i][j].isState()) {
-					btnNewButton.setBorderPainted(false);
-					btnNewButton.setBackground(Color.GREEN);
-				}
-				else {
-					btnNewButton.setBorderPainted(false);
-					btnNewButton.setBackground(Color.RED);
-				}
-				
-				frame.getContentPane().add(btnNewButton);
-			}
-		}
-		
-		
-		
-		
-		
+		botones = new TableroDeBotones(frame, 4);
+		botones.llenarTablero();
+
 	}
 }
-
+			
 
 

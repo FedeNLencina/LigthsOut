@@ -1,30 +1,29 @@
 package Logica;
 
-import java.util.HashSet;
 import java.util.Random;
 
-public class Tablero {
+public class TableroLogico {
 	
-	private Boton[][] tablero;
+	private static BotonLogico[][] tablero;
 	
-	public Tablero(int filas, int columnas) {
-		this.tablero = new Boton[filas][columnas];
+	public static void inicializarTableroLogico(int cantidad) {
+		tablero = new BotonLogico[cantidad][cantidad];
 		
-		for (int i = 0; i < tablero.length; i++) {
-			for (int j = 0; j < tablero[i].length; j++) {
+		for (int i = 0; i < cantidad; i++) {
+			for (int j = 0; j < cantidad; j++) {
 				Random random = new Random();
 				boolean valor = random.nextBoolean();
 				
-				this.tablero[i][j] = new Boton(valor);
+				tablero[i][j] = new BotonLogico(valor, i, j);
 			}
 		}
 	}
 
-	public Boton[][] getBotones() {
+	public BotonLogico[][] getBotones() {
 		return tablero;
 	}
 
-	public void setTablero(Boton[][] tablero) {
+	public void setTablero(BotonLogico[][] tablero) {
 		this.tablero = tablero;
 	}
 	
@@ -52,6 +51,11 @@ public class Tablero {
 			cambiarEstadoBoton(i, j-1);
 		if(existeBoton(i, j+1)) 
 			cambiarEstadoBoton(i, j+1);
+	}
+	
+	public void cambiarEstado(int i, int j) {
+		cambiarEstadoBoton(i, j);
+		cambiarEstadoVecinos(i,j);
 	}
 	
 
