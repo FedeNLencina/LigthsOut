@@ -1,6 +1,8 @@
 package Visual;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +27,7 @@ public class TableroDeBotones {
 				JButton jboton = new JButton();
 				BotonVisual boton = new BotonVisual(jboton, i, j);
 				
-				establecerIconoBoton(boton);
+				setIconoBoton(boton);
 				agregarEventoBoton(boton);
 				
 				boton.getJButon().setBorder(null);
@@ -40,7 +42,7 @@ public class TableroDeBotones {
 		}
 	}
 
-	private void establecerIconoBoton(BotonVisual boton) {
+	private void setIconoBoton(BotonVisual boton) {
 		//llama al controlador que verifica el estado del boton llamando al metodo Logico y le asigna la
 		//imagen que le corresponde de acuerdo a su estado
 		if(Controlador.getEstadoBoton(boton.getFila(), boton.getColumna())) {
@@ -52,11 +54,23 @@ public class TableroDeBotones {
 		}
 		
 	}
+	private void setIconoBotonOpuesto(BotonVisual boton) {
+		//llama al controlador que verifica el estado del boton llamando al metodo Logico y le asigna la
+		//imagen que le corresponde de acuerdo a su estado
+		if(Controlador.getEstadoBoton(boton.getFila(), boton.getColumna())) {
+			
+			boton.getJButon().setIcon(new ImageIcon(TableroDeBotones.class.getResource("/imagenes/boton_rojo_apagado(100px).png")));
+		}
+		else {
+			boton.getJButon().setIcon(new ImageIcon(TableroDeBotones.class.getResource("/imagenes/boton_rojo_encendido(100px).png")));
+		}
+		
+	}
 	
-	private void establecerIconoBotones() {
+	private void setIconoBotones() {
 		for (int i = 0; i < botones.length; i++) {
 			for (int j = 0; j < botones[0].length; j++) {
-				establecerIconoBoton(botones[i][j]);
+				setIconoBoton(botones[i][j]);
 			}
 		}
 	}
@@ -65,7 +79,7 @@ public class TableroDeBotones {
 		//realiza una jugada en la matriz logica, actualizando el estado, llamando al controlador
 		Controlador.actualizarJugadaMatriz(fila, columna);
 		//establece la imagen correspondiente al nuevo estado del tablero
-		establecerIconoBotones();
+		setIconoBotones();
 	}
 	
 	private void agregarEventoBoton(BotonVisual boton) {
@@ -85,6 +99,19 @@ public class TableroDeBotones {
 				frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
 			}
 		});	
+		
+		boton.getJButon().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				//cuando el cursor entra dentro del boton ocurre el evento y cambia el boton de color
+				setIconoBotonOpuesto(boton);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				//cuando sale el cursor del boton el color de ese boton se setea como debe ser
+				setIconoBoton(boton);
+			}
+		});
 	}
 	
 	private void desactivarBotones() {
