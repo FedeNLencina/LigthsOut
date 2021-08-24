@@ -92,8 +92,11 @@ public class TableroDeBotones {
 				if(Controlador.hayGanador()) {
 					//pantallita de ganador
 					desactivarBotones();
+					frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
 					JOptionPane.showMessageDialog(frame, "Felicitaciones has ganado el juego!" 
 					+ "\nMovimientos Totales: " + Controlador.getCantMov());
+					
+					
 					return;
 				}
 				frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
