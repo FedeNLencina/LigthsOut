@@ -3,7 +3,7 @@ package Main;
 import java.awt.EventQueue;
 import javax.swing.UIManager;
 import Controlador.Controlador;
-import Visual.Ventana;
+import Visual.MainVisual;
 import javax.swing.JFrame;
 
 public class Main {
@@ -18,17 +18,18 @@ public class Main {
 		
 		EventQueue.invokeLater(new Runnable() {
 			
-			//creamos lo visual
+			//Creamos lo visual
 			JFrame frame = new JFrame();
-			Ventana ventana = new Ventana(frame);
+			MainVisual ventana = new MainVisual(frame);
 			
-			//creamos el controlador
+			//Creamos el controlador
 			Controlador controlador = new Controlador();
 			
 			public void run() {
 				try {
-					ventana.initialize();
 					controlador.inicializarTableroLogico();
+					ventana.initialize();
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace();

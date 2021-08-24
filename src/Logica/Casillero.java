@@ -1,12 +1,12 @@
 package Logica;
 
-public class BotonLogico {
+public class Casillero {
 	
 	private boolean state;
 	private int fila;
 	private int columna;
 	
-	public BotonLogico(boolean estado, int fila, int columna) {
+	public Casillero(boolean estado, int fila, int columna) {
 		this.state = estado;
 		this.fila = fila;
 		this.columna = columna;
