@@ -24,7 +24,6 @@ public class MainVisual {
 		this.frame.getContentPane().setBackground(Color.darkGray);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setVisible(true);
-		//this.frame.setLocationRelativeTo(null);
 		this.frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
 		this.frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainVisual.class.getResource("/imagenes/boton_rojo_encendido.png")));
 		

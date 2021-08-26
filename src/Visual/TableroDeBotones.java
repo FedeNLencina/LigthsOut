@@ -30,12 +30,9 @@ public class TableroDeBotones {
 				setIconoBoton(boton);
 				agregarEventoBoton(boton);
 				
-			//	boton.getJButon().setBorder(null);
-			//	boton.getJButon().setBackground(null);
 				boton.getJButon().setContentAreaFilled(false);
 				
 				frame.getContentPane().add(boton.getJButon());
-			//	botones[i][j] = new BotonVisual(jboton, i, j);
 				botones[i][j] = boton;
 				
 			}
@@ -45,7 +42,6 @@ public class TableroDeBotones {
 	private void agregarEventoBoton(BotonVisual boton) {
 		boton.getJButon().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//realizarJugada(boton,boton.getFila(), boton.getColumna());
 				realizarJugada(boton);
 				if(Controlador.hayGanador()) {
 					//pantallita de ganador
