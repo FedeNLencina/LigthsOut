@@ -29,8 +29,6 @@ public class Main {
 				try {
 					controlador.inicializarTableroLogico();
 					ventana.initialize();
-					
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

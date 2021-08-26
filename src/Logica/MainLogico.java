@@ -21,7 +21,7 @@ public class MainLogico {
 		}
 	}
 	
-	public static void cambiarEstadoBoton(int i ,int j) {
+	private static void cambiarEstadoBoton(int i ,int j) {
 		//cambia el estado del casillero al opuesto
 		if (getEstadoCasillero(i, j)) {
 			tablero[i][j].setState(false);
@@ -30,14 +30,14 @@ public class MainLogico {
 		}
 	}
 	
-	public static boolean existeBoton(int i,int j) {
+	private static boolean existeBoton(int i,int j) {
 		if ((i<0 || i >=tablero.length) || (j<0 || j >=tablero.length)) {
 				return false;
 		}
 		return true;
 	}
 	
-	public static void cambiarEstadoVecinos(int i,int j) {
+	private static void cambiarEstadoVecinos(int i,int j) {
 		//cambia el estado de los casilleros adyacentes al pasado por parametro
 		if(existeBoton(i-1, j)) 
 			cambiarEstadoBoton(i-1, j);

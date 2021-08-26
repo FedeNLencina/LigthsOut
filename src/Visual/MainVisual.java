@@ -8,22 +8,23 @@ import Controlador.Controlador;
 
 public class MainVisual {
 
-	public JFrame frame;
+	private JFrame frame;
 	private TableroDeBotones botones;
 
 	public MainVisual(JFrame frame) {
 		this.frame = frame;
-	}
+	}	
 
 	public void initialize() {
 		
 		// Inicializa los contenidos del frame
+		frame = new JFrame();
 		this.frame.setBounds(350, 100, 650, 500);
 		this.frame.getContentPane().setLayout(new GridLayout(4, 4, 0, 0));
 		this.frame.getContentPane().setBackground(Color.darkGray);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setVisible(true);
-		this.frame.setLocationRelativeTo(null);
+		//this.frame.setLocationRelativeTo(null);
 		this.frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
 		this.frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainVisual.class.getResource("/imagenes/boton_rojo_encendido.png")));
 		
