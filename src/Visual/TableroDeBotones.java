@@ -10,13 +10,16 @@ import javax.swing.JOptionPane;
 import Controlador.Controlador;
 
 
+
 public class TableroDeBotones {
 	private JFrame frame;
 	public static BotonVisual[][] botones;
 	
+	
 	public TableroDeBotones(JFrame frame, int cantidad) {
 		this.frame = frame;
 		botones = new BotonVisual[cantidad][cantidad];
+		
 	}
 	
 	public void llenarTablero() {

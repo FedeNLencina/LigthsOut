@@ -3,7 +3,10 @@ package Main;
 import java.awt.EventQueue;
 import javax.swing.UIManager;
 import Controlador.Controlador;
+import Visual.Fondo;
 import Visual.MainVisual;
+
+
 import javax.swing.JFrame;
 
 public class Main {
@@ -20,7 +23,8 @@ public class Main {
 			
 			//Creamos lo visual
 			JFrame frame = new JFrame();
-			MainVisual ventana = new MainVisual(frame);
+			Fondo fondo = new Fondo();
+			MainVisual ventana = new MainVisual(frame,fondo);
 			
 			//Creamos el controlador
 			Controlador controlador = new Controlador();
@@ -29,6 +33,7 @@ public class Main {
 				try {
 					controlador.inicializarTableroLogico();
 					ventana.initialize();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

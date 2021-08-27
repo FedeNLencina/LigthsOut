@@ -7,6 +7,7 @@ public class MainLogico {
 	private static Casillero[][] tablero;
 	private static int cantMovimientos = 0;
 	
+	
 	public static void inicializarTableroLogico(int cantidad) {
 		//crea una matriz cuadrada de x cantidad y agrega valores booleanos random
 		tablero = new Casillero[cantidad][cantidad];
@@ -77,6 +78,5 @@ public class MainLogico {
 	public static int getCantMov() {
 		return cantMovimientos;
 	}
-	
 	
 }

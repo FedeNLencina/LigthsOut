@@ -1,5 +1,6 @@
 package Visual;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -12,22 +13,17 @@ import java.awt.Graphics;
 import Controlador.Controlador;
 
 
-
 public class MainVisual {
 
 	private JFrame frame;
 	private TableroDeBotones botones;
-	private Fondo fondo = new Fondo();
+	private Fondo fondo;
+	
 
-	public MainVisual(JFrame frame) {
+	public MainVisual(JFrame frame, Fondo fondo) {
 		this.frame = frame;
+		this.fondo = fondo;
 		
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}	
 
 	public void initialize() {
@@ -36,9 +32,8 @@ public class MainVisual {
 		frame = new JFrame();
 		frame.setContentPane(fondo);
 		this.frame.setBounds(350, 100, 650, 500);
-		//coordenadas
+		
 		this.frame.getContentPane().setLayout(new GridLayout(4, 4, 0, 0));
-		this.frame.getContentPane().setBackground(Color.darkGray);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setVisible(true);
 		this.frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
@@ -47,22 +42,11 @@ public class MainVisual {
 		// Crea el tablero visual y lo llena de botones
 		botones = new TableroDeBotones(frame, 4);
 		botones.llenarTablero();
+		
 
 	}
 	
-	private class Fondo extends JPanel{
-		private static final long serialVersionUID = 1L;
-		private Image imagenImage;
-		@Override
-		public void paint(Graphics g) {
-			imagenImage = new ImageIcon(getClass().getResource("/imagenes/fondo_metalico.jpg")).getImage();
-			g.drawImage(imagenImage, 0, 0, getWidth(), getHeight(), this);
-			//desctivamos fondo por defecto
-			setOpaque(false);
-			//dibuja los elementos sobre el fondo
-			super.paint(g);
-		}
-	}
+
 }
 			
 
