@@ -5,7 +5,7 @@ import java.util.Random;
 public class MainLogico {
 	
 	private static Casillero[][] tablero;
-	private static int cantMovimientos = 0;
+	private static int cantMovimientos = 20;
 	
 	
 	public static void inicializarTableroLogico(int cantidad) {
@@ -52,7 +52,7 @@ public class MainLogico {
 	
 	public static void actualizarEstadoTablero(int i, int j) {
 		//actualiza el estado de la matriz a partir del casillero pasado por parametro y aumenta el contador de mov
-		cantMovimientos++;
+		cantMovimientos--;
 		cambiarEstadoBoton(i, j);
 		cambiarEstadoVecinos(i,j);
 	}
@@ -73,6 +73,12 @@ public class MainLogico {
 			}
 		}
 		return true;
+	}
+	public static boolean NoHayMasMovimientos() {
+		return cantMovimientos==0;
+	}
+	public static int getCantMovHechos() {
+		return 20-cantMovimientos;
 	}
 	
 	public static int getCantMov() {

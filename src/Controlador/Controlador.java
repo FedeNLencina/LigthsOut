@@ -28,6 +28,9 @@ public class Controlador {
 		//Determina si hay un ganador en la partida llamando al metodo logico de validar partida
 		return MainLogico.validarPartida();
 	}
+	public static boolean HayPerdedor() {
+		return MainLogico.NoHayMasMovimientos();
+	}
 	
 	public static boolean getEstadoBoton(int i, int j) {
 		return MainLogico.getEstadoCasillero(i, j);
@@ -35,5 +38,8 @@ public class Controlador {
 	
 	public static int getCantMov() {
 		return MainLogico.getCantMov();
+	}
+	public static int getCantMovHechos() {
+		return MainLogico.getCantMovHechos();
 	}
 }
