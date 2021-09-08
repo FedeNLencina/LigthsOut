@@ -15,8 +15,8 @@ public class MainLogico {
 		for (int i = 0; i < cantidad; i++) {
 			for (int j = 0; j < cantidad; j++) {
 				Random random = new Random();
-				boolean valor = random.nextBoolean();
-//				boolean valor = true;
+				//boolean valor = random.nextBoolean();
+				boolean valor = true;
 				tablero[i][j] = new Casillero(valor, i, j);
 			}
 		}
@@ -75,10 +75,10 @@ public class MainLogico {
 		return true;
 	}
 	public static boolean NoHayMasMovimientos() {
-		return cantMovimientos==0;
+		return getCantMov() == 0;
 	}
 	public static int getCantMovHechos() {
-		return 20-cantMovimientos;
+		return 20-getCantMov();
 	}
 	
 	public static int getCantMov() {
