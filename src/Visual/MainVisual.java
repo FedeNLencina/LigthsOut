@@ -1,15 +1,7 @@
 package Visual;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.Color;
-import java.awt.Graphics;
-
 import Controlador.Controlador;
 
 
@@ -36,8 +28,8 @@ public class MainVisual {
 		this.frame.getContentPane().setLayout(new GridLayout(4, 4, 0, 0));
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setVisible(true);
-		this.frame.setTitle("Ligths Out!   " + "   Movimientos: " + Controlador.getCantMov());
-		this.frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainVisual.class.getResource("/imagenes/boton_rojo_encendido.png")));
+		this.frame.setTitle("Ligths Out!   " + "   Movimientos restantes: " + Controlador.getCantMov());
+		this.frame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainVisual.class.getResource("/imagenes/boton_rojo_encendido(100px).png")));
 		
 		// Crea el tablero visual y lo llena de botones
 		botones = new TableroDeBotones(frame, 4);
