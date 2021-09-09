@@ -49,18 +49,12 @@ public class TableroDeBotones {
 				if(Controlador.hayGanador()) {
 					//pantallita de ganador
 					desactivarBotones();
-					frame.setTitle("Ligths Out!   " + "   Movimientos restantes: " + Controlador.getCantMov());
+					frame.setTitle("Ligths Out!   " + "   Movimientos : " + Controlador.getCantMov());
 					JOptionPane.showMessageDialog(frame, "Felicitaciones has ganado el juego!" 
-					+ "\nMovimientos Totales: " + Controlador.getCantMovHechos());
+					+ "\nMovimientos Totales: " + Controlador.getCantMov());
 					return;
 				}
-				if(Controlador.HayPerdedor()) {
-					//pantallita de perdedor
-					desactivarBotones();
-					frame.setTitle("Ligths Out!   " + "   Movimientos restantes: " + Controlador.getCantMov());
-					JOptionPane.showMessageDialog(frame, "Se acabaron los mivimientos disponibles!");
-					return;
-				}
+				
 				frame.setTitle("Ligths Out!   " + "   Movimientos restantes: " + Controlador.getCantMov());
 			}
 		});	

@@ -10,6 +10,7 @@ public class MainVisual {
 	private JFrame frame;
 	private TableroDeBotones botones;
 	private Fondo fondo;
+
 	
 
 	public MainVisual(JFrame frame, Fondo fondo) {
@@ -17,6 +18,7 @@ public class MainVisual {
 		this.fondo = fondo;
 		
 	}	
+	
 
 	public void initialize() {
 		
