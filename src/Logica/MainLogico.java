@@ -15,8 +15,8 @@ public class MainLogico {
 		for (int i = 0; i < cantidad; i++) {
 			for (int j = 0; j < cantidad; j++) {
 				Random random = new Random();
-				//boolean valor = random.nextBoolean();
-				boolean valor = true;
+				boolean valor = random.nextBoolean();
+				//boolean valor = true;
 				tablero[i][j] = new Casillero(valor, i, j);
 			}
 		}
